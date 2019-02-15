@@ -1,0 +1,28 @@
+{
+  "name": "cordova-plugin-revenuecatshim",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "test:android": "cordova-paramedic --cleanUpAfterRun --verbose --platform android --plugin .",
+    "test:android:device": "cordova-paramedic --cleanUpAfterRun --verbose --platform android --plugin cordova-plugin-device",
+    "test:ios": "cordova-paramedic --cleanUpAfterRun --verbose --platform ios@5.0 --plugin .",
+    "test:ios:device": "cordova-paramedic --cleanUpAfterRun --verbose --platform ios --plugin cordova-plugin-device"
+  },
+  "cordova": {
+    "id": "cordova-plugin-revenuecatshim",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "Jinyoung Kim <jkiimm9@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "cordova-paramedic": "git://github.com/apache/cordova-paramedic.git#master"
+  }
+}

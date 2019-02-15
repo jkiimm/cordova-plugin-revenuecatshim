@@ -1,0 +1,3 @@
+dependencies {
+  implementation 'com.revenuecat.purchases:purchases:2.0.0'
+}
