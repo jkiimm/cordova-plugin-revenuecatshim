@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
+    "build:android": "npm run test:android -- --justbuild",
+    "build:ios": "npm run test:ios -- --justbuild",
     "test:android": "cordova-paramedic --cleanUpAfterRun --verbose --platform android --plugin .",
-    "test:android:device": "cordova-paramedic --cleanUpAfterRun --verbose --platform android --plugin cordova-plugin-device",
-    "test:ios": "cordova-paramedic --cleanUpAfterRun --verbose --platform ios@5.0 --plugin .",
-    "test:ios:device": "cordova-paramedic --cleanUpAfterRun --verbose --platform ios --plugin cordova-plugin-device"
+    "test:ios": "cordova-paramedic --cleanUpAfterRun --verbose --platform ios@5.0 --plugin ."
   },
   "cordova": {
     "id": "cordova-plugin-revenuecatshim",

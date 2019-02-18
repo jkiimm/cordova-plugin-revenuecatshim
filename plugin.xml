@@ -7,20 +7,24 @@
   <platform name="android">
     <config-file parent="/*" target="res/xml/config.xml">
       <feature name="RevenueCatShim">
-        <param name="android-package" value="cordova-plugin-revenuecatshim.RevenueCatShim"/>
+        <param name="android-package" value="com.revenuecatshim.RevenueCatShim"/>
       </feature>
     </config-file>
     <config-file parent="/*" target="AndroidManifest.xml"/>
-    <source-file src="src/android/RevenueCatShim.java" target-dir="src/cordova-plugin-revenuecatshim/RevenueCatShim"/>
+    <source-file src="src/android/com/revenuecatshim/RevenueCatShim.java" target-dir="src/com/revenuecatshim"/>
+    <source-file src="src/android/com/revenuecatshim/Util.java" target-dir="src/com/revenuecatshim"/>
     <framework custom="true" src="src/android/revenuecatshim.gradle" type="gradleReference" />
   </platform>
   <platform name="ios">
     <config-file parent="/*" target="config.xml">
       <feature name="RevenueCatShim">
-        <param name="ios-package" value="RevenueCatShim"/>
+        <param name="ios-package" value="RCSPurchase"/>
       </feature>
     </config-file>
-    <source-file src="src/ios/RevenueCatShim.m"/>
+    <header-file src="src/ios/RCSUtil.h"/>
+    <source-file src="src/ios/RCSUtil.m"/>
+    <header-file src="src/ios/RCSPurchase.h"/>
+    <source-file src="src/ios/RCSPurchase.m"/>
     <framework src="Purchases" type="podspec" spec="~> 2.0.0" />
   </platform>
 </plugin>
