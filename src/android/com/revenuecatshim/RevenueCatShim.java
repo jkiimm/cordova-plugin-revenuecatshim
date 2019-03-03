@@ -76,14 +76,9 @@ public class RevenueCatShim extends CordovaPlugin {
   }
 
   private void configure(String apiKey, String appUserId, CallbackContext callbackContext) {
-    try {
-      Purchases.setDebugLogsEnabled(true);
-      Purchases.configure(cordova.getActivity().getApplicationContext(), apiKey, appUserId);
-      callbackContext.success();
-    } catch (JSONException e) {
-      Log.e("RCS", "error message", e);
-      callbackContext.error("error exception");
-    }
+    Purchases.setDebugLogsEnabled(true);
+    Purchases.configure(cordova.getActivity().getApplicationContext(), apiKey, appUserId);
+    callbackContext.success();
   }
 
   private void getEntitlements(final CallbackContext callbackContext) {
