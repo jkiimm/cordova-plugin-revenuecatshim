@@ -53,7 +53,6 @@
   [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
   [numberFormatter setLocale:p.priceLocale];
   NSString *formattedString = [numberFormatter stringFromNumber:p.price];
-  [numberFormatter release];
 
   return formattedString;
 }
