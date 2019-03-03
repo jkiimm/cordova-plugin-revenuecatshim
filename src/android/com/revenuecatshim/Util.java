@@ -1,6 +1,8 @@
 package com.revenuecatshim;
 
 import java.util.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 import org.json.JSONObject;
 import org.json.JSONArray;
@@ -33,7 +35,14 @@ public class Util {
     obj.put("activeEntitlements", Util.setToJSON(pur.getActiveEntitlements()));
     obj.put("activeSubscriptions", Util.setToJSON(pur.getActiveSubscriptions()));
     obj.put("allPurchasedSkus", Util.setToJSON(pur.getAllPurchasedSkus()));
-    obj.put("latestExpirationDate", pur.getLatestExpirationDate());
+
+    Date latest = pur.getLatestExpirationDate();
+    if (latest != null) {
+      obj.put("latestExpirationDate", Util.dateToISO(latest));
+    } else {
+      obj.put("latestExpirationDate", JSONObject.NULL);
+    }
+
     return obj;
   }
 
@@ -59,5 +68,12 @@ public class Util {
     obj.put("title", sku.getTitle());
     obj.put("description", sku.getDescription());
     return obj;
+  }
+
+  private static String dateToISO(Date date) {
+    TimeZone tz = TimeZone.getTimeZone("UTC");
+    DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'");
+    df.setTimeZone(tz);
+    return df.format(date);
   }
 }

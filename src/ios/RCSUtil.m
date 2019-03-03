@@ -8,7 +8,7 @@
     [pi.activeEntitlements allObjects], @"activeEntitlements",
     [pi.activeSubscriptions allObjects], @"activeSubscriptions", 
     [pi.allPurchasedProductIdentifiers allObjects], @"allPurchasedProductIds", 
-    [RCSUtil dateToMillis:pi.latestExpirationDate], @"latestExpirationDate", 
+    [RCSUtil dateToISO:pi.latestExpirationDate], @"latestExpirationDate", 
     nil
   ];
 }
@@ -42,9 +42,9 @@
   ];
 }
 
-+ (NSString*)dateToMillis:(NSDate*)date {
-  NSTimeInterval millis = [date timeIntervalSince1970];
-  return [NSString stringWithFormat:@"%ld", lroundf(millis)];
++ (NSString*)dateToISO:(NSDate*)date {
+  NSISO8601DateFormatter* formatter = [[NSISO8601DateFormatter alloc] init];
+  return [formatter stringFromDate:date];
 }
 
 + (NSString*)localizedPrice:(SKProduct*)p {
